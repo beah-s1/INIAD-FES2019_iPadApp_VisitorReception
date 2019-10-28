@@ -7,6 +7,11 @@ target 'INIADFES-2019-Reception' do
 
   # Pods for INIADFES-2019-Reception
 
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'KeychainAccess'
+  pod 'RealmSwift'
+  
   target 'INIADFES-2019-ReceptionTests' do
     inherit! :search_paths
     # Pods for testing
