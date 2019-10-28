@@ -75,7 +75,6 @@
 		96835A0A23669AE800DFBD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96F895C323669BEE000BEACD /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		96F895C523669BF6000BEACD /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		96F895C723669C4A000BEACD /* StarIO_Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StarIO_Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		96F895D22366B80D000BEACD /* StarIO_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarIO_Bridging_Header.h; sourceTree = "<group>"; };
 		96F895E42366C860000BEACD /* StarIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO.framework; sourceTree = "<group>"; };
 		96F895E52366C860000BEACD /* StarIO_Extension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StarIO_Extension.framework; sourceTree = "<group>"; };
@@ -177,7 +176,6 @@
 				968359EF23669AE800DFBD1B /* Assets.xcassets */,
 				968359F123669AE800DFBD1B /* LaunchScreen.storyboard */,
 				968359F423669AE800DFBD1B /* Info.plist */,
-				96F895C723669C4A000BEACD /* StarIO_Extension-Bridging-Header.h */,
 				96F895D22366B80D000BEACD /* StarIO_Bridging_Header.h */,
 			);
 			path = "INIADFES-2019-Reception";
