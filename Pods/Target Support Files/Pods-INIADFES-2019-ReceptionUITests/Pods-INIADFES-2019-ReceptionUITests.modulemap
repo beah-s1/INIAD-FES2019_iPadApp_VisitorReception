@@ -1,0 +1,6 @@
+framework module Pods_INIADFES_2019_ReceptionUITests {
+  umbrella header "Pods-INIADFES-2019-ReceptionUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
