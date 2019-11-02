@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTQ-vi-dED">
-                                <rect key="frame" x="0.0" y="0.0" width="852" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="50"/>
                                 <items>
                                     <navigationItem title="Title" id="ywh-uV-xcc"/>
                                 </items>
@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3M9-4x-Sk8">
-                                <rect key="frame" x="0.0" y="0.0" width="852" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="50"/>
                                 <items>
                                     <navigationItem title="最終アンケート" id="phg-fG-7M8"/>
                                 </items>
@@ -177,16 +177,16 @@
             </objects>
             <point key="canvasLocation" x="2344.53125" y="1171.875"/>
         </scene>
-        <!--View Controller-->
+        <!--Visitor Attribute Form View Controller-->
         <scene sceneID="eLA-xc-7L8">
             <objects>
-                <viewController id="TyP-wJ-KC6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VisitorAttributeForm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TyP-wJ-KC6" customClass="VisitorAttributeFormViewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uj5-Nl-KOD">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sr2-Jg-TR6">
-                                <rect key="frame" x="0.0" y="272" width="852" height="110"/>
+                            <pickerView contentMode="scaleToFill" restorationIdentifier="age" translatesAutoresizingMaskIntoConstraints="NO" id="sr2-Jg-TR6">
+                                <rect key="frame" x="0.0" y="271.5" width="810" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sr2-Jg-TR6" secondAttribute="height" multiplier="96:13" id="3w8-Ag-MZc"/>
                                 </constraints>
@@ -229,8 +229,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDJ-3O-Zkz">
-                                <rect key="frame" x="0.0" y="461" width="852" height="109"/>
+                            <pickerView contentMode="scaleToFill" restorationIdentifier="gender" translatesAutoresizingMaskIntoConstraints="NO" id="eDJ-3O-Zkz">
+                                <rect key="frame" x="0.0" y="460.5" width="810" height="109.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eDJ-3O-Zkz" secondAttribute="height" multiplier="96:13" id="vNm-YJ-5K5"/>
                                 </constraints>
@@ -244,8 +244,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCb-cn-6lV">
-                                <rect key="frame" x="0.0" y="649" width="852" height="110"/>
+                            <pickerView contentMode="scaleToFill" restorationIdentifier="job" translatesAutoresizingMaskIntoConstraints="NO" id="GCb-cn-6lV">
+                                <rect key="frame" x="0.0" y="649" width="810" height="109.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GCb-cn-6lV" secondAttribute="height" multiplier="96:13" id="tzD-3z-lth"/>
                                 </constraints>
@@ -259,8 +259,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5g-Hd-yYK">
-                                <rect key="frame" x="0.0" y="838" width="852" height="109"/>
+                            <pickerView contentMode="scaleToFill" restorationIdentifier="numberOfPeople" translatesAutoresizingMaskIntoConstraints="NO" id="k5g-Hd-yYK">
+                                <rect key="frame" x="0.0" y="837.5" width="810" height="109.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="k5g-Hd-yYK" secondAttribute="height" multiplier="96:13" id="zdb-WO-qge"/>
                                 </constraints>
@@ -271,6 +271,9 @@
                                     <constraint firstAttribute="width" secondItem="jqz-Gz-gXt" secondAttribute="height" multiplier="25:9" id="AFd-V6-eZr"/>
                                 </constraints>
                                 <state key="normal" image="RegisterComplete"/>
+                                <connections>
+                                    <action selector="submit:" destination="TyP-wJ-KC6" eventType="touchUpInside" id="Y5o-8d-iAz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -311,15 +314,21 @@
                         <viewLayoutGuide key="safeArea" id="dyr-CI-s8j"/>
                     </view>
                     <navigationItem key="navigationItem" id="Yhj-Ak-RBA"/>
+                    <connections>
+                        <outlet property="agePicker" destination="sr2-Jg-TR6" id="BUV-3z-w2y"/>
+                        <outlet property="genderPicker" destination="eDJ-3O-Zkz" id="62i-Fw-fKe"/>
+                        <outlet property="jobPicker" destination="GCb-cn-6lV" id="DAl-4F-07f"/>
+                        <outlet property="nopPicker" destination="k5g-Hd-yYK" id="B5I-sO-0E9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gn4-TP-i7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2344.53125" y="-163.4765625"/>
         </scene>
-        <!--View Controller-->
+        <!--Visitor Attribute Register Complete View Controller-->
         <scene sceneID="sIz-Kd-87I">
             <objects>
-                <viewController id="xeI-cH-KKA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VisitorAttributeRegisterCompleteView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xeI-cH-KKA" customClass="VisitorAttributeRegisterCompleteViewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jso-yv-WF3">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -352,6 +361,9 @@
                                     <constraint firstAttribute="width" secondItem="sAs-Lk-cab" secondAttribute="height" multiplier="50:13" id="Puj-cn-wiA"/>
                                 </constraints>
                                 <state key="normal" image="Complete"/>
+                                <connections>
+                                    <action selector="finish:" destination="xeI-cH-KKA" eventType="touchUpInside" id="LJr-sA-cMr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -368,6 +380,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hH4-vB-yUs"/>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="sAs-Lk-cab" id="2oi-xo-V67"/>
+                        <outlet property="completeMessage1" destination="vKK-Ei-eD6" id="Gdp-aT-btY"/>
+                        <outlet property="completeMessage2" destination="I2x-vL-cLw" id="mx3-tJ-g4i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XG-sn-KWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -382,7 +399,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJ3-OO-EEl">
-                                <rect key="frame" x="0.0" y="0.0" width="852" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="50"/>
                                 <items>
                                     <navigationItem title="QRコードを読み取らせてください" id="vG6-2f-efS"/>
                                 </items>
@@ -412,7 +429,7 @@
         <!--受付-->
         <scene sceneID="0vD-Rg-bJX">
             <objects>
-                <viewController id="HXo-iQ-3nj" sceneMemberID="viewController">
+                <viewController id="HXo-iQ-3nj" customClass="ReceptionWaitingViewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2X9-48-DgI">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -435,6 +452,9 @@
                                     <constraint firstAttribute="width" secondItem="plr-oG-02g" secondAttribute="height" multiplier="1:1" id="TIJ-rw-Ktl"/>
                                 </constraints>
                                 <state key="normal" image="TouchToStart"/>
+                                <connections>
+                                    <action selector="startButtonOnPress:" destination="HXo-iQ-3nj" eventType="touchUpInside" id="NMK-kA-ioB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -452,15 +472,20 @@
                         <viewLayoutGuide key="safeArea" id="hTS-Sq-Z3A"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="受付" id="o3A-cA-Ca9"/>
+                    <connections>
+                        <outlet property="LogoImageView" destination="Jnr-Vd-5NK" id="vxc-7c-txF"/>
+                        <outlet property="startButton" destination="plr-oG-02g" id="53g-nR-3un"/>
+                        <outlet property="welcomeText" destination="tL6-Fd-gPd" id="QaV-OA-8mt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P9T-8o-vl4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="739.84375" y="-163.4765625"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose Issue Code Or Read Code View Controller-->
         <scene sceneID="5sd-TH-dXU">
             <objects>
-                <viewController id="Kke-ec-9UB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseIssueCodeOrReadCodeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kke-ec-9UB" customClass="ChooseIssueCodeOrReadCodeViewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qTx-SZ-nVi">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -476,7 +501,7 @@ QRコードをお持ちですか？</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoR-TU-Inw">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Yes" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoR-TU-Inw">
                                 <rect key="frame" x="20" y="522" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Fe6-az-UWJ"/>
@@ -484,8 +509,11 @@ QRコードをお持ちですか？</string>
                                     <constraint firstAttribute="width" constant="300" id="vpz-zG-8Vt"/>
                                 </constraints>
                                 <state key="normal" image="Yes"/>
+                                <connections>
+                                    <action selector="pressButton:" destination="Kke-ec-9UB" eventType="touchUpInside" id="4qm-Cg-Tug"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qn2-1O-5N6">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="No" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qn2-1O-5N6">
                                 <rect key="frame" x="490" y="522" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="SRT-AL-pq1"/>
@@ -493,6 +521,9 @@ QRコードをお持ちですか？</string>
                                     <constraint firstAttribute="height" constant="300" id="v3S-yE-9Qu"/>
                                 </constraints>
                                 <state key="normal" image="No"/>
+                                <connections>
+                                    <action selector="pressButton:" destination="Kke-ec-9UB" eventType="touchUpInside" id="pPe-FS-LJk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -507,6 +538,11 @@ QRコードをお持ちですか？</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FUq-sX-dsX"/>
                     </view>
+                    <connections>
+                        <outlet property="InstructionLabel" destination="AZ7-B8-xqO" id="7E7-jp-GPq"/>
+                        <outlet property="NoButton" destination="Qn2-1O-5N6" id="eFC-pW-LPm"/>
+                        <outlet property="YesButton" destination="MoR-TU-Inw" id="4Ob-Qg-LuY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qe0-n9-t3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
