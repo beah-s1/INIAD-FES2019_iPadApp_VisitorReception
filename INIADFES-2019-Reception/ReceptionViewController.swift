@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AVFoundation
+import KeychainAccess
 
 class ReceptionWaitingViewController:UIViewController{
     @IBOutlet weak var LogoImageView: UIImageView!
@@ -88,7 +90,9 @@ class ChooseIssueCodeOrReadCodeViewController:UIViewController{
                 self.YesButton.center.y -= 30
                 self.YesButton.alpha = 0.0
             }, completion: {_ in
-                print("complete")
+                let view = self.storyboard!.instantiateViewController(withIdentifier: "AppQrCodeReader") as! AppQrCodeReader
+                view.modalPresentationStyle = .fullScreen
+                self.present(view, animated: false, completion: nil)
             })
             break
         case "No":
@@ -349,7 +353,7 @@ class VisitorAttributeFormViewController:UIViewController,UIPickerViewDelegate,U
             self.present(alert, animated: true, completion: nil)
             return
         }
-
+        
     }
 }
 
@@ -367,7 +371,7 @@ class VisitorAttributeRegisterCompleteViewController:UIViewController{
             //guard let waitingView = self.presentingViewController?.presentingViewController?.presentingViewController as? ReceptionWaitingViewController else{
             //    return
             //}
-
+            
             
             self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         })
@@ -375,4 +379,98 @@ class VisitorAttributeRegisterCompleteViewController:UIViewController{
         
     }
     
+}
+
+class AppQrCodeReader:UIViewController, AVCaptureMetadataOutputObjectsDelegate{
+    @IBOutlet weak var qrCodeView: UIView!
+    var session:AVCaptureSession!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.session = AVCaptureSession.init()
+        let discover_session = AVCaptureDevice.DiscoverySession.init(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera], mediaType: .video, position: .front)
+        
+        let devices = discover_session.devices
+        
+        if let cameraDevice = devices.first{
+            do{
+                //カメラ入力設定
+                let deviceInput = try AVCaptureDeviceInput(device: cameraDevice)
+                
+                if !self.session.canAddInput(deviceInput){
+                }
+                self.session.addInput(deviceInput)
+                
+                //ディスプレイ設定
+                let output = AVCaptureMetadataOutput()
+                if self.session.canAddOutput(output){
+                    self.session.addOutput(output)
+                }
+                
+                
+                output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+                output.metadataObjectTypes = [.qr]
+                
+                
+                self.qrCodeView.clipsToBounds = true
+                let previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
+                previewLayer.frame = self.qrCodeView.frame
+                previewLayer.videoGravity = .resizeAspectFill
+                
+                self.qrCodeView.layer.addSublayer(previewLayer)
+                
+                self.session.startRunning()
+            }catch{
+                
+            }
+            
+        }
+    }
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        for metadata in metadataObjects as! [AVMetadataMachineReadableCodeObject]{
+            if metadata.type != .qr {continue}
+            if metadata.stringValue == nil {continue}
+            
+            guard let url = URL(string: metadata.stringValue!) else{
+                continue
+            }
+            
+            if url.host != "app.iniadfes.com" || url.path != "/visitor"{
+                return
+            }
+            
+            guard let userId = url.queryParams()["user_id"] else{
+                return
+            }
+            
+            self.session.stopRunning()
+            visitorReceptionRequest(userId: userId)
+        }
+    }
+    
+    func visitorReceptionRequest(userId:String){
+        let config = Configuration()
+        let keyStore = Keychain.init(service: config.value(forKey: "keychain_identifier"))
+        
+        let queue = DispatchQueue.global(qos: .utility)
+        let semaphore = DispatchSemaphore.init(value: 0)
+        
+        Alamofire.request("\(config.value(forKey: "base_url"))/api/v1/admin/reception", method: .post, parameters: ["user_id":userId], headers: ["Authorization":"Bearer \(keyStore["apiKey"]!)"]).responseJSON(queue: queue){response in
+            guard let value = response.result.value else{
+                return
+            }
+            
+            let responseJsonObject = JSON(value)
+            print(responseJsonObject)
+            
+            semaphore.signal()
+        }
+        
+        semaphore.wait()
+        
+        let view = self.storyboard!.instantiateViewController(withIdentifier: "VisitorAttributeRegisterCompleteView") as! VisitorAttributeRegisterCompleteViewController
+        
+        self.present(view, animated: true, completion: nil)
+    }
 }

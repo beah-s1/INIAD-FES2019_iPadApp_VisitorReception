@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import KeychainAccess
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, StarIoExtManagerDelegate {
@@ -14,6 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, StarIoExtManagerDelegate 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let config = Configuration()
+        let keyStore = Keychain.init(service: config.value(forKey: "keychain_identifier"))
+        if keyStore["apiKey"] != nil{}else{
+            let queue = DispatchQueue.global(qos: .utility)
+            let semaphore = DispatchSemaphore.init(value: 0)
+            
+            Alamofire.request("\(config.value(forKey: "base_url"))/api/v1/user/new", method: .post, parameters: ["device_type":"reception_device"]).responseJSON(queue: queue){response in
+                guard let value = response.result.value else{
+                    return
+                }
+                
+                let createUserResultJsonObject = JSON(value)
+                keyStore["apiKey"] = createUserResultJsonObject["secret"].stringValue
+                
+                semaphore.signal()
+            }
+            
+            semaphore.wait()
+            
+            UIApplication.shared.open(URL(string: "\(config.value(forKey: "base_url"))/auth/circle?api_key=\(keyStore["apiKey"]!)")!)
+        }
+        
         manager = StarIoExtManager.init(type: .standard, portName: "BT:mC-Print3", portSettings: "", ioTimeoutMillis: 10000)!
         manager.delegate = self
         manager.connectAsync()

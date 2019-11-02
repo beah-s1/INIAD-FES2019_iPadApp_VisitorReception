@@ -390,10 +390,10 @@
             </objects>
             <point key="canvasLocation" x="3200.78125" y="-163.4765625"/>
         </scene>
-        <!--View Controller-->
+        <!--App Qr Code Reader-->
         <scene sceneID="ggD-13-0dp">
             <objects>
-                <viewController id="4Cy-EI-oOt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppQrCodeReader" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Cy-EI-oOt" customClass="AppQrCodeReader" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xdv-4K-Trg">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -421,6 +421,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h8y-T7-NdJ"/>
                     </view>
+                    <connections>
+                        <outlet property="qrCodeView" destination="iUH-X1-LTX" id="MxZ-DO-Ubd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytG-OR-4C4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

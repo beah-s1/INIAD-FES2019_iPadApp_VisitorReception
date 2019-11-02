@@ -10,6 +10,7 @@
 		7BDE474E54CF41984EF2D3A5 /* Pods_INIADFES_2019_ReceptionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA649600F30E2096F32EEE5 /* Pods_INIADFES_2019_ReceptionTests.framework */; };
 		961914B6236D826B00BA0B3C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961914B5236D826B00BA0B3C /* Configuration.swift */; };
 		961914B8236D86D100BA0B3C /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961914B7236D86D100BA0B3C /* configuration.plist */; };
+		96751A46236DF6890075C03B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96751A45236DF6890075C03B /* Extensions.swift */; };
 		9679B156236C4CEB006CD923 /* ReceptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679B155236C4CEB006CD923 /* ReceptionViewController.swift */; };
 		9679B158236CD5B5006CD923 /* VisitorAttributeBase.json in Resources */ = {isa = PBXBuildFile; fileRef = 9679B157236CD5B5006CD923 /* VisitorAttributeBase.json */; };
 		968359E723669AE600DFBD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968359E623669AE600DFBD1B /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 		4CEDD909E82575C7BEF5B244 /* Pods-INIADFES-2019-Reception.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INIADFES-2019-Reception.debug.xcconfig"; path = "Target Support Files/Pods-INIADFES-2019-Reception/Pods-INIADFES-2019-Reception.debug.xcconfig"; sourceTree = "<group>"; };
 		961914B5236D826B00BA0B3C /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		961914B7236D86D100BA0B3C /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
+		96751A45236DF6890075C03B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9679B155236C4CEB006CD923 /* ReceptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptionViewController.swift; sourceTree = "<group>"; };
 		9679B157236CD5B5006CD923 /* VisitorAttributeBase.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VisitorAttributeBase.json; sourceTree = "<group>"; };
 		968359E323669AE600DFBD1B /* INIADFES-2019-Reception.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INIADFES-2019-Reception.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,7 @@
 				96F895D22366B80D000BEACD /* StarIO_Bridging_Header.h */,
 				9679B155236C4CEB006CD923 /* ReceptionViewController.swift */,
 				961914B5236D826B00BA0B3C /* Configuration.swift */,
+				96751A45236DF6890075C03B /* Extensions.swift */,
 				9679B157236CD5B5006CD923 /* VisitorAttributeBase.json */,
 				961914B7236D86D100BA0B3C /* configuration.plist */,
 			);
@@ -432,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96751A46236DF6890075C03B /* Extensions.swift in Sources */,
 				9679B156236C4CEB006CD923 /* ReceptionViewController.swift in Sources */,
 				961914B6236D826B00BA0B3C /* Configuration.swift in Sources */,
 				968359E723669AE600DFBD1B /* AppDelegate.swift in Sources */,
