@@ -1,6 +1,9 @@
 {
     "age":[
         {
+            "displayString":"---上下スライドで選択---",
+            "dataString":"null"
+        },{
             "displayString":"10代以下",
             "dataString":"1"
         },{
@@ -25,6 +28,9 @@
     ],
     "gender":[
         {
+            "displayString":"---上下スライドで選択---",
+            "dataString":"null"
+        },{
             "displayString":"男性",
             "dataString":"m"
         },{
@@ -37,6 +43,9 @@
     ],
     "job":[
         {
+            "displayString":"---上下スライドで選択---",
+            "dataString":"null"
+        },{
             "displayString":"小学生以下",
             "dataString":"under_elementary"
         },{
@@ -55,6 +64,9 @@
     ],
     "number_of_people":[
         {
+            "displayString":"---上下スライドで選択---",
+            "dataString":"null"
+        },{
             "displayString":"1人",
             "dataString":"1"
         },{

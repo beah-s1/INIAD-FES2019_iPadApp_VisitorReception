@@ -47,7 +47,7 @@
         <!--最終アンケート-->
         <scene sceneID="fON-Wg-WQU">
             <objects>
-                <viewController id="5xI-DN-Fyl" sceneMemberID="viewController">
+                <viewController id="5xI-DN-Fyl" customClass="FinalEnqueteQrCodeReaderVuewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j9K-XD-jFx">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,70 +77,62 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="最終アンケート" id="gP2-Qa-rtB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="qrCodeView" destination="RV1-3H-qic" id="r7d-KR-rUY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTL-GD-E1m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="739.25925925925924" y="1172.2222222222222"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7Q5-0i-Vbw">
+        <!--QR移行（デジタル→紙）-->
+        <scene sceneID="zrZ-8F-E4a">
             <objects>
-                <viewController id="wqC-Ud-h0t" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iBr-P3-xxx">
+                <viewController id="RMy-zK-j6T" customClass="QRDigitalToPaperMigrationViewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XRP-6p-b5a">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llj-RR-8Tk">
-                                <rect key="frame" x="0.0" y="20" width="810" height="206.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="llj-RR-8Tk" secondAttribute="height" multiplier="192:49" id="XeF-vm-iK0"/>
-                                </constraints>
-                                <string key="text">ご来場ありがとうございました。
-来場者アンケートにご協力ください。</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WbZ-zW-oPt">
-                                <rect key="frame" x="20" y="496" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="5qJ-Cf-hxI"/>
-                                    <constraint firstAttribute="width" secondItem="WbZ-zW-oPt" secondAttribute="height" multiplier="1:1" id="CfQ-sP-3BH"/>
-                                    <constraint firstAttribute="height" constant="300" id="xej-at-qQA"/>
-                                </constraints>
-                                <state key="normal" image="Yes"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNE-4A-hEF">
-                                <rect key="frame" x="490" y="496" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="3O8-QY-vcX"/>
-                                    <constraint firstAttribute="height" constant="300" id="T2N-5c-7ES"/>
-                                    <constraint firstAttribute="width" secondItem="FNE-4A-hEF" secondAttribute="height" multiplier="1:1" id="mPi-zM-Knq"/>
-                                </constraints>
-                                <state key="normal" image="No"/>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phs-r8-dPS">
+                                <rect key="frame" x="0.0" y="0.0" width="810" height="50"/>
+                                <items>
+                                    <navigationItem title="QRコードを読み取らせてください" id="EGa-yv-gvV"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ch-EL-7ob">
+                                <rect key="frame" x="0.0" y="50" width="810" height="980"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="llj-RR-8Tk" firstAttribute="top" secondItem="ZF0-Pi-PrS" secondAttribute="top" constant="20" id="2aX-m6-VvJ"/>
-                            <constraint firstItem="ZF0-Pi-PrS" firstAttribute="trailing" secondItem="FNE-4A-hEF" secondAttribute="trailing" constant="20" id="4zy-qK-Aew"/>
-                            <constraint firstItem="ZF0-Pi-PrS" firstAttribute="bottom" secondItem="FNE-4A-hEF" secondAttribute="bottom" constant="284" id="7wK-dR-GbF"/>
-                            <constraint firstItem="WbZ-zW-oPt" firstAttribute="leading" secondItem="ZF0-Pi-PrS" secondAttribute="leading" constant="20" id="CDi-nf-ClP"/>
-                            <constraint firstItem="llj-RR-8Tk" firstAttribute="leading" secondItem="ZF0-Pi-PrS" secondAttribute="leading" id="Irw-Tf-det"/>
-                            <constraint firstItem="llj-RR-8Tk" firstAttribute="trailing" secondItem="ZF0-Pi-PrS" secondAttribute="trailing" id="VD2-ja-zKB"/>
-                            <constraint firstItem="ZF0-Pi-PrS" firstAttribute="bottom" secondItem="WbZ-zW-oPt" secondAttribute="bottom" constant="284" id="lnP-M5-Jgf"/>
+                            <constraint firstItem="phs-r8-dPS" firstAttribute="trailing" secondItem="5SK-9R-AWN" secondAttribute="trailing" id="2SF-WF-0p4"/>
+                            <constraint firstItem="2ch-EL-7ob" firstAttribute="bottom" secondItem="5SK-9R-AWN" secondAttribute="bottom" id="4Ub-py-swi"/>
+                            <constraint firstItem="2ch-EL-7ob" firstAttribute="top" secondItem="phs-r8-dPS" secondAttribute="bottom" id="5Ms-NP-8eP"/>
+                            <constraint firstItem="phs-r8-dPS" firstAttribute="leading" secondItem="5SK-9R-AWN" secondAttribute="leading" id="7yo-h1-7Ll"/>
+                            <constraint firstItem="2ch-EL-7ob" firstAttribute="leading" secondItem="5SK-9R-AWN" secondAttribute="leading" id="J93-xC-iKg"/>
+                            <constraint firstItem="2ch-EL-7ob" firstAttribute="trailing" secondItem="5SK-9R-AWN" secondAttribute="trailing" id="dIY-sQ-sXp"/>
+                            <constraint firstItem="phs-r8-dPS" firstAttribute="top" secondItem="5SK-9R-AWN" secondAttribute="top" id="uJb-fq-eaZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZF0-Pi-PrS"/>
+                        <viewLayoutGuide key="safeArea" id="5SK-9R-AWN"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="QR移行（デジタル→紙）" id="KD2-vk-X4g"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Xb8-xf-Dv4"/>
+                    </toolbarItems>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="qrCodeView" destination="2ch-EL-7ob" id="f3q-Jj-gDt"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SFO-yv-slO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXG-22-X3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="1172"/>
+            <point key="canvasLocation" x="738.51851851851848" y="1956.6666666666665"/>
         </scene>
-        <!--View Controller-->
+        <!--Final Enquete Form View Controller-->
         <scene sceneID="oa0-3z-NvB">
             <objects>
-                <viewController id="IJ7-MS-GX3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinalEnqueteForm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IJ7-MS-GX3" customClass="FinalEnqueteFormViewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yau-lW-gR2">
                         <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +140,23 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3M9-4x-Sk8">
                                 <rect key="frame" x="0.0" y="0.0" width="810" height="50"/>
                                 <items>
-                                    <navigationItem title="最終アンケート" id="phg-fG-7M8"/>
+                                    <navigationItem title="最終アンケート" id="phg-fG-7M8">
+                                        <barButtonItem key="leftBarButtonItem" title="✗" image="square.and.arrow.up" catalog="system" style="plain" id="eJX-fN-JDW">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dor-Rs-u49">
+                                                <rect key="frame" x="20" y="8" width="73" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="✗">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="close:" destination="IJ7-MS-GX3" eventType="touchUpInside" id="o9l-fi-5eY"/>
+                                                </connections>
+                                            </button>
+                                            <connections>
+                                                <action selector="close:" destination="IJ7-MS-GX3" id="TRB-Pq-eHc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHJ-1D-WB9">
@@ -172,10 +180,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wJQ-Mp-kgT"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="UHJ-1D-WB9" id="WgC-cZ-reB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfG-1K-BLt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2344.53125" y="1171.875"/>
+            <point key="canvasLocation" x="1534" y="1172"/>
         </scene>
         <!--Visitor Attribute Form View Controller-->
         <scene sceneID="eLA-xc-7L8">
@@ -429,7 +440,7 @@
             </objects>
             <point key="canvasLocation" x="2344.53125" y="477.53906249999994"/>
         </scene>
-        <!--受付-->
+        <!--全体受付-->
         <scene sceneID="0vD-Rg-bJX">
             <objects>
                 <viewController id="HXo-iQ-3nj" customClass="ReceptionWaitingViewController" customModule="INIADFES_2019_Reception" customModuleProvider="target" sceneMemberID="viewController">
@@ -474,7 +485,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hTS-Sq-Z3A"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="受付" id="o3A-cA-Ca9"/>
+                    <tabBarItem key="tabBarItem" title="全体受付" id="o3A-cA-Ca9"/>
                     <connections>
                         <outlet property="LogoImageView" destination="Jnr-Vd-5NK" id="vxc-7c-txF"/>
                         <outlet property="startButton" destination="plr-oG-02g" id="53g-nR-3un"/>
@@ -562,8 +573,8 @@ QRコードをお持ちですか？</string>
                     </tabBar>
                     <connections>
                         <segue destination="HXo-iQ-3nj" kind="relationship" relationship="viewControllers" id="aqK-NB-4EB"/>
-                        <segue destination="mqm-46-Kyh" kind="relationship" relationship="viewControllers" id="BEU-YW-ceL"/>
                         <segue destination="5xI-DN-Fyl" kind="relationship" relationship="viewControllers" id="1wJ-Vl-d28"/>
+                        <segue destination="RMy-zK-j6T" kind="relationship" relationship="viewControllers" id="ymA-Yv-ac0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="va2-21-Wrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -577,5 +588,6 @@ QRコードをお持ちですか？</string>
         <image name="RegisterComplete" width="275" height="80"/>
         <image name="TouchToStart" width="300" height="300"/>
         <image name="Yes" width="300" height="300"/>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
 </document>

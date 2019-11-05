@@ -11,6 +11,7 @@
 		961914B6236D826B00BA0B3C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961914B5236D826B00BA0B3C /* Configuration.swift */; };
 		961914B8236D86D100BA0B3C /* configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 961914B7236D86D100BA0B3C /* configuration.plist */; };
 		96751A46236DF6890075C03B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96751A45236DF6890075C03B /* Extensions.swift */; };
+		96751A48236E00640075C03B /* FInalEnqueteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96751A47236E00640075C03B /* FInalEnqueteViewController.swift */; };
 		9679B156236C4CEB006CD923 /* ReceptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679B155236C4CEB006CD923 /* ReceptionViewController.swift */; };
 		9679B158236CD5B5006CD923 /* VisitorAttributeBase.json in Resources */ = {isa = PBXBuildFile; fileRef = 9679B157236CD5B5006CD923 /* VisitorAttributeBase.json */; };
 		968359E723669AE600DFBD1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968359E623669AE600DFBD1B /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 		968359F323669AE800DFBD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968359F123669AE800DFBD1B /* LaunchScreen.storyboard */; };
 		968359FE23669AE800DFBD1B /* INIADFES_2019_ReceptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968359FD23669AE800DFBD1B /* INIADFES_2019_ReceptionTests.swift */; };
 		96835A0923669AE800DFBD1B /* INIADFES_2019_ReceptionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96835A0823669AE800DFBD1B /* INIADFES_2019_ReceptionUITests.swift */; };
+		969094FA236FDE9A007487D9 /* QRCodeMigrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969094F9236FDE9A007487D9 /* QRCodeMigrationViewController.swift */; };
 		96F895C423669BEE000BEACD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F895C323669BEE000BEACD /* CoreBluetooth.framework */; };
 		96F895C623669BF6000BEACD /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F895C523669BF6000BEACD /* ExternalAccessory.framework */; };
 		96F895E62366C861000BEACD /* StarIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F895E42366C860000BEACD /* StarIO.framework */; };
@@ -66,6 +68,7 @@
 		961914B5236D826B00BA0B3C /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		961914B7236D86D100BA0B3C /* configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = configuration.plist; sourceTree = "<group>"; };
 		96751A45236DF6890075C03B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		96751A47236E00640075C03B /* FInalEnqueteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FInalEnqueteViewController.swift; sourceTree = "<group>"; };
 		9679B155236C4CEB006CD923 /* ReceptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptionViewController.swift; sourceTree = "<group>"; };
 		9679B157236CD5B5006CD923 /* VisitorAttributeBase.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VisitorAttributeBase.json; sourceTree = "<group>"; };
 		968359E323669AE600DFBD1B /* INIADFES-2019-Reception.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INIADFES-2019-Reception.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,7 @@
 		96835A0423669AE800DFBD1B /* INIADFES-2019-ReceptionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "INIADFES-2019-ReceptionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96835A0823669AE800DFBD1B /* INIADFES_2019_ReceptionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INIADFES_2019_ReceptionUITests.swift; sourceTree = "<group>"; };
 		96835A0A23669AE800DFBD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		969094F9236FDE9A007487D9 /* QRCodeMigrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMigrationViewController.swift; sourceTree = "<group>"; };
 		96F895C323669BEE000BEACD /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		96F895C523669BF6000BEACD /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		96F895D22366B80D000BEACD /* StarIO_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarIO_Bridging_Header.h; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				968359E623669AE600DFBD1B /* AppDelegate.swift */,
 				968359E823669AE600DFBD1B /* SceneDelegate.swift */,
 				968359EC23669AE600DFBD1B /* Main.storyboard */,
+				969094F9236FDE9A007487D9 /* QRCodeMigrationViewController.swift */,
+				96751A47236E00640075C03B /* FInalEnqueteViewController.swift */,
 				968359EF23669AE800DFBD1B /* Assets.xcassets */,
 				968359F123669AE800DFBD1B /* LaunchScreen.storyboard */,
 				968359F423669AE800DFBD1B /* Info.plist */,
@@ -437,8 +443,10 @@
 			files = (
 				96751A46236DF6890075C03B /* Extensions.swift in Sources */,
 				9679B156236C4CEB006CD923 /* ReceptionViewController.swift in Sources */,
+				96751A48236E00640075C03B /* FInalEnqueteViewController.swift in Sources */,
 				961914B6236D826B00BA0B3C /* Configuration.swift in Sources */,
 				968359E723669AE600DFBD1B /* AppDelegate.swift in Sources */,
+				969094FA236FDE9A007487D9 /* QRCodeMigrationViewController.swift in Sources */,
 				968359E923669AE600DFBD1B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

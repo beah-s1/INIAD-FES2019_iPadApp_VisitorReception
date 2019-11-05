@@ -223,7 +223,7 @@ class VisitorAttributeFormViewController:UIViewController,UIPickerViewDelegate,U
                 "gender":self.selectedGender["dataString"]!,
                 "age":self.selectedAge["dataString"]!,
                 "job":self.selectedJob["dataString"]!,
-                "number_of_people":self.selectedJob["dataString"]!
+                "number_of_people":self.selectedNumberOfPeople["dataString"]!
             ], headers: ["Authorization":"Bearer \(apiKey)"]).responseJSON(queue: queue, completionHandler: {response in
                 guard let value = response.result.value else{
                     let alert = UIAlertController(title: "Error", message: "通信に失敗しました", preferredStyle: .alert)
@@ -241,6 +241,23 @@ class VisitorAttributeFormViewController:UIViewController,UIPickerViewDelegate,U
                 
                 semaphore.signal()
             })
+            
+            semaphore.wait()
+            
+            queue = DispatchQueue.global(qos: .utility)
+            semaphore = DispatchSemaphore.init(value: 0)
+            let keyStore = Keychain(service: config.value(forKey: "keychain_identifier"))
+            
+            Alamofire.request("\(config.value(forKey: "base_url"))/api/v1/admin/reception", method: .post, parameters: ["user_id":user_id], headers: ["Authorization":"Bearer \(keyStore["apiKey"]!)"]).responseJSON(queue: queue){response in
+                guard let value = response.result.value else{
+                    return
+                }
+                
+                let responseJsonObject = JSON(value)
+                print(responseJsonObject)
+                
+                semaphore.signal()
+            }
             
             semaphore.wait()
             
@@ -315,17 +332,14 @@ class VisitorAttributeFormViewController:UIViewController,UIPickerViewDelegate,U
             builder.appendQrCodeData("https://app.iniadfes.com/visitor?user_id=\(user_id)".data(using: .utf8)!, model: .no2, level: .L, cell: 10)
             builder.appendLineFeed()
             //builder.appendInvert(true)
-            builder.appendData(withLineFeed: "QRコードを受付で提示してください".data(using: .utf8))
+            builder.appendData(withLineFeed: "QRコードを受付で提示してください".data(using: .shiftJIS))
             
             let formatter = DateFormatter()
             formatter.dateFormat = "MM月dd日"
-            builder.appendData(withLineFeed: "来場日：\(formatter.string(from: Date()))".data(using: .utf8))
-            builder.appendData(withLineFeed: "ーーーーーーーーーーーーーーーー".data(using: .utf8))
-            builder.appendData(withLineFeed: "「INIAD-FES 公式アプリ」配信中！".data(using: .utf8))
-            builder.appendData(withLineFeed: "見やすい館内マップも！".data(using: .utf8))
-            builder.appendData(withLineFeed: "AppStoreで「INIAD-FES」と検索！".data(using: .utf8))
-            builder.appendData(withLineFeed: "※iOS版のみのご提供となります".data(using: .utf8))
-            builder.appendData(withLineFeed: "ーーーーーーーーーーーーーーーー".data(using: .utf8))
+            builder.appendData(withLineFeed: "来場日：\(formatter.string(from: Date()))".data(using: .shiftJIS))
+            builder.appendData(withLineFeed: "ーーーーーーーーーーーーーーーー".data(using: .shiftJIS))
+            builder.appendData(withLineFeed: "お帰りの際、受付でのアンケートにご協力をお願いいたします".data(using: .shiftJIS))
+            builder.appendData(withLineFeed: "ーーーーーーーーーーーーーーーー".data(using: .shiftJIS))
             
             builder.appendCutPaper(.fullCutWithFeed)
             //builder.endDocument()
